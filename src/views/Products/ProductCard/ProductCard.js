@@ -6,7 +6,7 @@ export const ProductCard = ({ id, title, price, description, category, image, ra
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`products/${id}`);
+        navigate(`/products/${id}`);
     };
 
     return (

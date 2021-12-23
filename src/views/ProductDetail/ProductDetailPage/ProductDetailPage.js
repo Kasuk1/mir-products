@@ -1,5 +1,5 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getProductDetail, selectGetProductDetailLoading, selectProduct } from "../../../features/productDetail/productDetail.slice";
 import ProductDetailPageStyles from "./ProductDetailPage.styles";
@@ -7,8 +7,8 @@ import ProductDetailPageStyles from "./ProductDetailPage.styles";
 export const ProductDetailPage = () => {
     const { productId } = useParams();
     const dispatch = useDispatch();
+
     const { id, image, title, description, category, price, rating } = useSelector(selectProduct);
-    /* const { rate, count } = rating; */
     const productLoading = useSelector(selectGetProductDetailLoading);
 
     useEffect(() => {
@@ -16,12 +16,19 @@ export const ProductDetailPage = () => {
     }, [dispatch, productId])
 
 
-    if (productLoading) return <h1>Loading Product...</h1>;
+    if (productLoading) return (
+        <ProductDetailPageStyles>
+            <h1>Loading Product...</h1>
+        </ProductDetailPageStyles>
+    );
 
     return (
-        <main style={{ backgroundColor: '#EDE6F9' }}>
+        <>
+
             <ProductDetailPageStyles>
-                <Link style={{ width: '100%', fontSize: '1.6rem' }} to={-1}>&#8592; Regresar</Link>
+                <div style={{ width: '100%' }}>
+                    <Link style={{ fontSize: '1.6rem' }} to={-1}>&#8592; Regresar</Link>
+                </div>
                 <div className="product__left">
                     <p className="product__title">{title}</p>
                     <img className="" src={image} alt="" />
@@ -43,10 +50,11 @@ export const ProductDetailPage = () => {
 
                     <div className="product__group">
                         <h3 className="product__subtitle">Rating</h3>
-                        <p className="product__rating">{rating.rate}</p>
+                        {rating && <p className="product__rating">{rating.rate}</p>}
                     </div>
                 </div>
             </ProductDetailPageStyles>
-        </main>
+        </>
+
     )
 }

@@ -8,16 +8,17 @@ import { ProductsPage } from '../views/Products/ProductsPage/ProductsPage';
 
 export const PublicRoutes = () => {
     return (
-        <div>
+        <>
             <Navbar />
 
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="products" element={<ProductsPage />} />
-                <Route path="products/:productId" element={<ProductDetailPage />} />
-                <Route path="about" element={<AboutPage />} />
-            </Routes>
-
-        </div>
+            <main style={{ backgroundColor: '#EDE6F9', minHeight: '93vh' }}>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="products" element={<ProductsPage />} />
+                    <Route path="products/:productId" element={<ProductDetailPage />} />
+                    <Route path="about" element={<AboutPage />} />
+                </Routes>
+            </main>
+        </>
     )
 }

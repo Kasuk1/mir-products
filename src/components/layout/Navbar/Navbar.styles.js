@@ -7,8 +7,14 @@ const NavbarStyles = styled.nav`
     padding: 1.5rem;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
+
+    @media only screen and (min-width: 37.5em) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
     .navbar {
 
@@ -24,7 +30,11 @@ const NavbarStyles = styled.nav`
 
         &__list {
             display: flex;
-            gap: 8rem;
+            gap: 5rem;
+
+            @media only screen and (min-width: 37.5em) {
+                gap: 8rem;
+            }
         }
 
         &__item {

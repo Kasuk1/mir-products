@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ProductDetailPageStyles = styled.article`
     max-width: 140rem;
     margin: 0 auto;
-    padding: 6rem 1.5rem;
+    padding: 4rem 1.5rem;
     color: #403659;
 
     display: flex;
@@ -12,6 +12,8 @@ const ProductDetailPageStyles = styled.article`
     gap: 3rem;
 
     @media only screen and (min-width: 57.5em) {
+        padding: 8rem 1.5rem;
+
         flex-direction: row;
     }
 
