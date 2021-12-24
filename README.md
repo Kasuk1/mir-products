@@ -1,44 +1,105 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# MIR - Products Fake
 
-## Available Scripts
+Este proyecto fue realizado como parte del programa TOP para Desarrollador Web Full-Stack JavaScript de MakeItReal - Tiempo Completo.
 
-In the project directory, you can run:
+## Tecnologías/Herramientas utilizadas
 
-### `npm start`
+- HTML, CSS
+- JavaScript
+- React.js
+- React Router v6
+- Redux Toolkit
+- Styled-components
+- FontAwesome(React)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Desarrollo de preguntas
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. ¿Cuáles son las ceremonias más importantes de un Sprint y cuál es la idea de cada una?
 
-### `npm test`
+   Las ceremonias mas importantes son 4:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Sprint planning; Planificación de tareas en el termino de ese sprint(product backlog)
+- Dayly Scrum: Reunión diaria, donde comounicamos los avances individuales.
+- Sprint Review; Reunión para evaluar resultados de los sprints. A su vez se revisa los avances de cada integrante e interacción con el equipo en ese mismo sprint.
+- Sprint Restrospective: Reunión donde se ve el resultado de todo el proyecto, así como el análisis de los problemas que se presentaron. Básicamente es donde se da feedback de todo en conjunto.
 
-### `npm run build`
+2. ¿Qué son los Wireframes? Nombra al menos una herramienta que podamos utilizar.
+   Los Wireframes se entienden como el mockup o diseño de la estructura de cada página de la futura app. Para realizarlo dependerá del equipo de trabajo en el área de diseño o el que tu estes adaptado, empezando desde hoja y lápiz a mano hasta utilizar herramientas varias como Figma, AdobeXD, inVision, etc.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Explicar la diferencia entre var, let y const. Y dar un ejemplo en qué caso se utilizará.
+   La diferencia entre estos 3 tipos de variables es el scope(apunte/alcance). La razón por la cual se agrego el let y const es porque var puede ser utilizado de forma global con la sustitución y se pueden sobreescribir variables. Let arregla el problema del var y actualmente es su sustituto y el más seguro de usar en cuanto a variables que van a cambiar pero que se mantendran en su scope. Const fue creado con el objetivo de no poder reasignar el valor de la variables, es decir, se mantendrá constante. Esto asegura la sobreescritura de la misma. Sin embargo, debemos de tener cuidado al momento de sobreescribir objetos o listas, ya que solo te restringe la reasignación del objeto o array entero mas no lo que vive dentro de ese array/objeto.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+4. ¿Cuáles son los tres comandos que se pueden utilizar para crear una nueva rama llamada rama-1?
+   Los que conozco son:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- git switch -c rama-1
+- git branch rama-1
+- git checkout rama-1
+- git checkout -b rama-1 (Igual que el checkout, pero con el -b te cambies directamente a esta)
 
-### `npm run eject`
+5. Explicar la diferencia entre git merge y git rebase.
+   Ambas nos sirven para fusionar ramas, pero, merge creará un commit indicando que hubo una fusión o adición en caso hubo algo nuevo en cualquiera de las ramas. El rebase unifica las ramas y no quedará rastro de la rama alterna con la que fusionaste, esto se verá reflejado en los commits de igual manera.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+6. ¿Cuál es la diferencia entre Pull Request (PR) y el comando git pull?
+   Git pull incorpora todos los cambios que existan en el repositorio a la rama en la cual se le haga el git pull. El Pull Request(PR) es solicitud de unir una rama a otra. Esta se hace directamente del repositorio en GitHub(por ejemplo) y dependerá de políticas del proyecto para su aprobación.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+7. ¿Qué es el Virtual DOM?
+   Podemos ver al Virtual DOM como una copia light del DOM. El propósito de su implementación en React fue para evitar la renderización de todo el DOM de JavaScript, la cual puede ser hasta 10 veces más lento. Es entonces que todos los objetos que existan en el Virtual DOM serán comparados con un "snapshot" del Virtual DOM que se realizó antes y ces así como puede saber exactamente que es lo que ha cambiado y solo los objetos que cambiaron, serán los únicos en ser renderizados finalmente en el DOM.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+8. Dado el siguiente codePen, el cual solo tiene un HTML, por medio de css llegar a esta respuesta. Imagen. (Para mostrar los servicios debes usar CSS Flexbox o CSS Grid).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Código CSS
 
-## Learn More
+```
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+li {
+  list-style: none;
+}
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+.c-section {
+   padding: 30px 50px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.c-section__title {
+  background-color: #0E0E0E;
+  border-top: 12px solid #5A5F73;
+  color: #F7F5F7;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.c-services {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.c-services__item {
+  background-color: #F7F5F7;
+  width: 48.7%;
+  padding: 25px 20px;
+  transition: all 0.3s;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.c-services__item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.c-services__item h3 {
+  margin-left: 40px;
+}
+```

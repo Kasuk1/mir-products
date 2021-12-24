@@ -9,9 +9,6 @@ export const ProductCard = ({ id, title, price, description, category, image, ra
     const [minutes, setMinutes] = useState(Math.floor((timer % (1000 * 60 * 60)) / (1000 * 60)));
     const [seconds, setSeconds] = useState(Math.floor((timer % (1000 * 60)) / 1000));
 
-    //TODO: CREAR NUEVO COMPONENTE TIMER Y COLOCAR SU LÓGICA ALLÍ
-    //TODO: MEJORAR UX CON RESPECTO AL TIMER Y ESTE PRODUCT CARD CUANDO ESTE YA HAYA LLEGADO A 0
-
     useEffect(() => {
         const timeout = setTimeout(() => {
             setTimer(current => current - 1000);
@@ -30,7 +27,7 @@ export const ProductCard = ({ id, title, price, description, category, image, ra
 
 
     return (
-        <ProductCardStyles onClick={timer > 0 && handleClick} >
+        <ProductCardStyles className={timer < 0 && 'disabled'} onClick={timer > 0 && handleClick}>
             <div className="product-card__image">
                 <img src={image} alt="" />
 
@@ -40,9 +37,20 @@ export const ProductCard = ({ id, title, price, description, category, image, ra
                 <p className="product-card__price">${price}</p>
             </div>
             <div>
-                <p style={{ fontSize: '2rem' }}>{minutes < 10 ? `0${minutes}` : minutes}
-                    :
-                    {seconds < 10 ? `0${seconds}` : seconds}
+                <p className={seconds > 0 && seconds <= 10 ? 'product-card__timer end' : 'product-card__timer'}
+                    style={{ color: `${timer < 0 && 'gray'}` }}
+                >
+                    {timer < 0
+                        ?
+                        (
+                            `Sale finished :(`
+                        )
+                        :
+                        (
+                            `Sale ends in: ${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`
+                        )
+                    }
+
                 </p>
             </div>
         </ProductCardStyles>

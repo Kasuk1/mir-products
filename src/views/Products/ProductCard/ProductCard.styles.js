@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const ProductCardStyles = styled.div`
     background-color: #fff;
     border-radius: 0.8rem;
+    color: #403659;
     width: 25rem;
     padding: 3rem 1.5rem;
     cursor: pointer;
@@ -19,6 +20,14 @@ const ProductCardStyles = styled.div`
         transform: scale(1.02);
     }
 
+    &.disabled {
+        cursor: default;
+        opacity: 0.5;
+        &:hover {
+            transform: none;
+        }
+    }
+
     .product-card {
         &__image {
             width: 60%;
@@ -30,6 +39,8 @@ const ProductCardStyles = styled.div`
         }
 
         &__detail {
+            margin-top: auto;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -49,13 +60,32 @@ const ProductCardStyles = styled.div`
         }
 
         &__price {
-            color: #403659;
             font-size: 2.2rem;
             font-weight: 900;
         }
 
+        &__timer {
+            font-size: 1.8rem;
+
+            &.end {
+                color: red;
+                animation: blink 0.8s infinite alternate;
+            }
+
+            @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+        }
         
     }
+
+    
 `;
 
 export default ProductCardStyles;
