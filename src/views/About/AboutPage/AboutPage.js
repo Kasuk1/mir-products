@@ -8,6 +8,7 @@ import ImgProfile from '../../../assets/images/img-profile.jpg';
 library.add(fab)
 
 export const AboutPage = () => {
+
     return (
         <AboutPageStyles>
             <div className="about__left">
